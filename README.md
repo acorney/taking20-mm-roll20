@@ -2,10 +2,11 @@
 These updated macros are based on the work done by Taking20 and their GM Cody to build a "monster manual" using NPCs and templates into Roll20. This speeds up gameplay and makes running NPCs much smoother for GMs. 
 
 ## BACKGROUND
-These macros were originally published in 2016 on YouTube:
-https://www.youtube.com/watch?annotation_id=annotation_1479158841&feature=iv&src_vid=zLI-oAyHFaA&v=rrbqdkGIa00
+These macros were originally published in 2016 on YouTube: https://youtu.be/rrbqdkGIa00
 
-In the years since, Roll20 has updated their systems and some variables have been updated or depricated. I absolutely adored the idea of a drag & drop monster manual as soon as I saw the video. I couldn't find a revised set of macros, so I spent a day researching and updated them myself.
+In the years since, Roll20 has updated their systems and some variables have been updated or depricated, so the original macros have a few syntax errors. 
+
+I absolutely adored the idea of a drag & drop monster manual as soon as I saw the video. I couldn't find a revised set of macros, so I spent a day researching and updated them for 2019.
 
 ## PATCH LIST
 - Fully replaced the "Saves" macro to create a simplified dropdown. Reference: https://app.roll20.net/forum/post/5591512/5e-ogl-universal-saving-throw-macro-updated-for-v2-dot-0 
