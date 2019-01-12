@@ -13,7 +13,7 @@ I absolutely adored the idea of a drag & drop monster manual as soon as I saw th
 - Fully replaced the "Spells" macros since spells are no longer stored in repeating tables (which was how the macro originally worked). The new macro matches the spirit of Cody's work (a macro per spell level). It utilises the new variables to properly call each spell per level, and allow for higher level casting. Reference: https://app.roll20.net/forum/post/5615072/5e-ogl-spell-list-macro/?pageforid=5615072#post-5615072
 - Put commentary to "innate" spells. Some monsters may need you to tweak the character sheet to enable their spellbook.
 - Updated Perception to use more straightforward math (Perception + 10 for passive). Doesn't take into account ADV/DIS. Reference: https://app.roll20.net/forum/post/4658021/npc-perception-slash-passive-perception-macro
-- Updated "Stats" to remove an depricated npcd* duplicate variable reference
+- Updated "Stats" to remove a depricated npcd* duplicate variable reference
 
 ## ORIGINAL VIDEO
 https://www.youtube.com/watch?annotation_id=annotation_1479158841&feature=iv&src_vid=zLI-oAyHFaA&v=rrbqdkGIa00
