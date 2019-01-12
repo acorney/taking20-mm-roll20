@@ -15,11 +15,12 @@ I absolutely adored the idea of a drag & drop monster manual as soon as I saw th
 - Updated Perception to use more straightforward math (Perception + 10 for passive). Doesn't take into account ADV/DIS. Reference: https://app.roll20.net/forum/post/4658021/npc-perception-slash-passive-perception-macro
 - Updated "Stats" to remove a depricated npcd* duplicate variable reference
 
-## ORIGINAL VIDEO
-https://www.youtube.com/watch?annotation_id=annotation_1479158841&feature=iv&src_vid=zLI-oAyHFaA&v=rrbqdkGIa00
+## ORIGINAL VIDEO WITH INSTRUCTIONS AND DEMONSTRATION 
+https://youtu.be/rrbqdkGIa00
+The instructions are 100% still accurate, just replace the use of those macros with this updated version.
 
 ## TAKING20
-You can find Taking20 at taking20.net, and all credit for the original idea & macros goes to them.
+You can find Taking20 at [taking20.net](https://taking20.net "Taking20"), and all credit for the original idea & macros goes to them.
 
 ## ME
-I hang out on Twitter mostly as @corney
+I hang out on Twitter mostly as [@corney](https://twitter.com/corney/ "@corney").
