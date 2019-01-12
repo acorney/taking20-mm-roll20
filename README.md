@@ -1,5 +1,5 @@
 ## SUMMARY
-These macros are based on the work done by Taking20 and their GM Cody to build a "monster manual" using NPCs and templates into Roll20. This speeds up gameplay and makes running NPCs much smoother for GMs. 
+These updated macros are based on the work done by Taking20 and their GM Cody to build a "monster manual" using NPCs and templates into Roll20. This speeds up gameplay and makes running NPCs much smoother for GMs. 
 
 ## BACKGROUND
 These macros were originally published in 2016 on YouTube:
