@@ -1,0 +1,66 @@
+## Action
+# If you are only getting attacks, and no damage then-- On the NPC Character sheet hit the cogwheel. Scroll down until you see "General Options". Change "Auto Damage Roll" to "Auto Roll Damage & Crit". Done. Do this on the template.
+%{selected|repeating_npcaction_$0_npc_action}
+
+## Trait
+/w gm &{template:npcaction} {{name=@{selected|npc_name}}} {{rname=@{selected|repeating_npctrait_$0_name}}} {{description=@{selected|repeating_npctrait_$0_desc}}}
+
+## Multiple traits ^
+# Often they don't need their own boxes, so just batch them 
+/w gm &{template:npcaction} {{name=@{selected|npc_name}}} {{rname=@{selected|repeating_npctrait_$0_name}}} {{description=@{selected|repeating_npctrait_$0_desc}}}
+/w gm &{template:npcaction} {{name=@{selected|npc_name}}} {{rname=@{selected|repeating_npctrait_$1_name}}} {{description=@{selected|repeating_npctrait_$1_desc}}}
+
+
+## Reaction
+/w gm &{template:npcaction} {{name=@{selected|npc_name}}} {{rname=@{selected|repeating_npcreaction_$0_name}}} {{description=@{selected|repeating_npcreaction_$0_desc} }}
+
+## Spells (Cantrip) ^
+Cantrip
+%{selected|repeating_spell-cantrip_$0_spell}
+%{selected|repeating_spell-cantrip_$1_spell}
+%{selected|repeating_spell-cantrip_$2_spell}
+
+## Spells (Level 1) ^
+%{selected|repeating_spell-1_$0_spell}
+%{selected|repeating_spell-1_$1_spell}
+%{selected|repeating_spell-1_$2_spell}
+
+## Spells (Level 2+) ^
+# Note that you need to replace "spell-2" with "spell-3" for level 3, "spell-4" for level 4, etc
+%{selected|repeating_spell-2_$0_spell}
+%{selected|repeating_spell-2_$1_spell}
+%{selected|repeating_spell-2_$2_spell}
+
+## Spells (Innate) ^
+# eg. Djinni. No difference in macro, but you will need to press the cog (same one you use to drop from the compendium) and edit the character sheet to tell Roll20 it's a "Spellcasting NPC" and fill in the stats in that block as per the monster info. Then fill in spells as per usual.
+
+## Legendary Macro
+@{selected|wtype}&{template:npcaction} {{name=@{selected|npc_name}}} {{rname=Legendary Actions}} {{description=The @{selected|npc_name} can take @{selected|npc_legendary_actions} legendary actions, choosing from the options below. Only one legendary option can be used at a time and only at the end of another creature's turn. The @{selected|npc_name} regains spent legendary actions at the start of its turn.}} @{selected|charname_output}
+
+## Legendary Actions
+%{selected|repeating_npcaction-l_$0_npc_action} 
+
+## Initiative
+%{selected|npc_init}
+
+## DR/Immunities
+/w gm &{template:default} {{name=DR/Immunities}} {{Damage Resistance= @{selected|npc_resistances}}} {{Damage Vulnerability= @{selected|npc_vulnerabilities}}} {{Damage Immunity= @{selected|npc_immunities}}} {{Condition Immunity= @{selected|npc_condition_immunities}}}
+
+## Perception ^
+%{Selected|npc_perception}
+@{selected|wtype}&{template:npc} {{normal=1}} {{name=@{selected|npc_name}}} {{rname=Passive Perception}} {{mod=}} {{r1=[[@{selected|npc_perception}+10]]}}
+
+## Stats ^
+/w gm &{template:default} {{name=Stats}} {{Armor Class= @{selected|npc_AC} | @{selected|npc_actype}}} {{Hit Dice= @{selected|npc_hpformula} | [[@{selected|npc_hpformula}]]}} {{Speed= @{selected|npc_speed}}} {{Senses=@{selected|npc_senses}}}
+
+## Saves
+# This has had the most modification, moving from a table into a dropdown. I don't write code, so this is the best I've found to replicate our needs. 
+
+/w gm &{template:simple} @{selected|rtype}?{Save
+|Strength,+[[(@{selected|strength_save_bonus}@{selected|pbd_safe}*(1-ceil((@{selected|npc})*0.00001)))+(@{selected|npc_str_save}*@{selected|npc})]][STR SAVE] ]]&#125;&#125; {{rname=^{strength-save-u&#125;&#125;&#125; {{mod=[[ [[(@{selected|strength_save_bonus}@{selected|pbd_safe}*(1-ceil((@{selected|npc})*0.00001)))+(@{selected|npc_str_save}*@{selected|npc})]][STR SAVE] ]]&#125;&#125; {{r1=[[@{selected|d20}+[[(@{selected|strength_save_bonus}@{selected|pbd_safe}*(1-ceil((@{selected|npc})*0.00001)))+(@{selected|npc_str_save}*@{selected|npc})]][STR SAVE] ]]
+|Dexterity,+[[(@{selected|dexterity_save_bonus}@{selected|pbd_safe}*(1-ceil((@{selected|npc})*0.00001)))+(@{selected|npc_dex_save}*@{selected|npc})]][DEX SAVE] ]]&#125;&#125; {{rname=^{dexterity-save-u&#125;&#125;&#125; {{mod=[[ [[(@{selected|dexterity_save_bonus}@{selected|pbd_safe}*(1-ceil((@{selected|npc})*0.00001)))+(@{selected|npc_dex_save}*@{selected|npc})]][DEX SAVE] ]]&#125;&#125; {{r1=[[@{selected|d20}+[[(@{selected|dexterity_save_bonus}@{selected|pbd_safe}*(1-ceil((@{selected|npc})*0.00001)))+(@{selected|npc_dex_save}*@{selected|npc})]][DEX SAVE] ]]
+|Constitution,+[[(@{selected|constitution_save_bonus}@{selected|pbd_safe}*(1-ceil((@{selected|npc})*0.00001)))+(@{selected|npc_con_save}*@{selected|npc})]][CON SAVE] ]]&#125;&#125; {{rname=^{constitution-save-u&#125;&#125;&#125; {{mod=[[ [[(@{selected|constitution_save_bonus}@{selected|pbd_safe}*(1-ceil((@{selected|npc})*0.00001)))+(@{selected|npc_con_save}*@{selected|npc})]][CON SAVE] ]]&#125;&#125; {{r1=[[@{selected|d20}+[[(@{selected|constitution_save_bonus}@{selected|pbd_safe}*(1-ceil((@{selected|npc})*0.00001)))+(@{selected|npc_con_save}*@{selected|npc})]][CON SAVE] ]]
+|Intelligence,+[[(@{selected|intelligence_save_bonus}@{selected|pbd_safe}*(1-ceil((@{selected|npc})*0.00001)))+(@{selected|npc_int_save}*@{selected|npc})]][INT SAVE] ]]&#125;&#125; {{rname=^{intelligence-save-u&#125;&#125;&#125; {{mod=[[ [[(@{selected|intelligence_save_bonus}@{selected|pbd_safe}*(1-ceil((@{selected|npc})*0.00001)))+(@{selected|npc_int_save}*@{selected|npc})]][INT SAVE] ]]&#125;&#125; {{r1=[[@{selected|d20}+[[(@{selected|intelligence_save_bonus}@{selected|pbd_safe}*(1-ceil((@{selected|npc})*0.00001)))+(@{selected|npc_int_save}*@{selected|npc})]][INT SAVE] ]]
+|Wisdom,+[[(@{selected|wisdom_save_bonus}@{selected|pbd_safe}*(1-ceil((@{selected|npc})*0.00001)))+(@{selected|npc_wis_save}*@{selected|npc})]][WIS SAVE] ]]&#125;&#125; {{rname=^{wisdom-save-u&#125;&#125;&#125; {{mod=[[ [[(@{selected|wisdom_save_bonus}@{selected|pbd_safe}*(1-ceil((@{selected|npc})*0.00001)))+(@{selected|npc_wis_save}*@{selected|npc})]][WIS SAVE] ]]&#125;&#125; {{r1=[[@{selected|d20}+[[(@{selected|wisdom_save_bonus}@{selected|pbd_safe}*(1-ceil((@{selected|npc})*0.00001)))+(@{selected|npc_wis_save}*@{selected|npc})]][WIS SAVE] ]]
+|Charisma,+[[(@{selected|charisma_save_bonus}@{selected|pbd_safe}*(1-ceil((@{selected|npc})*0.00001)))+(@{selected|npc_cha_save}*@{selected|npc})]][CHA SAVE] ]]&#125;&#125; {{rname=^{charisma-save-u&#125;&#125;&#125; {{mod=[[ [[(@{selected|charisma_save_bonus}@{selected|pbd_safe}*(1-ceil((@{selected|npc})*0.00001)))+(@{selected|npc_cha_save}*@{selected|npc})]][CHA SAVE] ]]&#125;&#125; {{r1=[[@{selected|d20}+[[(@{selected|charisma_save_bonus}@{selected|pbd_safe}*(1-ceil((@{selected|npc})*0.00001)))+(@{selected|npc_cha_save}*@{selected|npc})]][CHA SAVE] ]]
+}}} @{selected|global_save_mod} @{selected|charname_output}
