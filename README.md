@@ -14,6 +14,7 @@ I absolutely adored the idea of a drag & drop monster manual as soon as I saw th
 - Put commentary to "innate" spells. Some monsters may need you to tweak the character sheet to enable their spellbook.
 - Updated Perception to use more straightforward math (Perception + 10 for passive). Doesn't take into account ADV/DIS. Reference: https://app.roll20.net/forum/post/4658021/npc-perception-slash-passive-perception-macro
 - Updated "Stats" to remove a depricated npcd* duplicate variable reference
+- Macros that have been updated have a ^ next to their header. If there's no ^, there's no update needed.
 
 ## ORIGINAL VIDEO WITH INSTRUCTIONS AND DEMONSTRATION 
 https://youtu.be/rrbqdkGIa00
